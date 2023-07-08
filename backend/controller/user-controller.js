@@ -3,7 +3,7 @@ const User = require("../model/user-model");
 const bcrypt = require("bcrypt");
 
  const addUser = async (req, res, next) => {
-    const { type, name, email, password, classes, age, school, contactnumber, address, uidse, language} = req.body;
+    const { type, name, email, password, classes, age, school, contactnumber, address, uidse, language1, language2} = req.body;
     let existingUser;
     try {
       existingUser = await User.findOne({ email: email });
@@ -28,7 +28,8 @@ const bcrypt = require("bcrypt");
       contactnumber, 
       address, 
       uidse, 
-      language
+      language1,
+      language2,
     });
   
     try {
@@ -60,8 +61,18 @@ const bcrypt = require("bcrypt");
       .json({ message: "Login Successfull", user: existingUser });
   };
   
-
+  const getUser = async (req, res, net)=>{
+     try{
+        const getAllUser = await User.find({});
+        return res.status(200).json(getAllUser);
+     } catch(error){
+        console.log(error);
+     }
+  }
   exports.addUser = addUser
   exports.login = login
+  exports.getUser = getUser
+
+
 
    
