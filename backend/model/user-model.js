@@ -41,8 +41,12 @@ const UserSchema = new mongoose.Schema({
    uidse :{
     type: [Number],
    },
-   language : {
-    type: [String],
+   language1 : {
+    type: String,
+    required : true,
+   },
+   language2 : {
+    type: String,
     required : true,
    }
 })
