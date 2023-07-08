@@ -30,7 +30,7 @@ const bcrypt = require("bcrypt");
       uidse, 
       language1,
       language2,
-      isAccepted : false,
+      isAccepted : "false",
     });
   
     try {

@@ -1,14 +1,13 @@
 
-import './App.css';
- import LoginForm from './pages/login';
-
-function App() {
-  return ( 
-    <div className="App">
-      <LoginForm />
-  
-    </div>
-  );
+.App-link {
+  color: #61dafb;
 }
 
-export default App;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
