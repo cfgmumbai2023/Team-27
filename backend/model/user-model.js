@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
    },
    classes : {
     type : Number,
-    required : true,
+    
    },
    age : {
     type : Number,
@@ -30,7 +30,6 @@ const UserSchema = new mongoose.Schema({
    },
    school : {
     type : String,
-    required : true,
    },
    contactnumber : {
     type : Number,
@@ -42,15 +41,12 @@ const UserSchema = new mongoose.Schema({
    },
    uidse :{
     type: Number,
-    required : true,
    },
    language1 : {
     type: String,
-    required : true,
    },
    language2 : {
       type: String,
-      required : true,
      }
 })
 

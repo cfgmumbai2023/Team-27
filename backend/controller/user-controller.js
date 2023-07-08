@@ -69,9 +69,56 @@ const bcrypt = require("bcrypt");
         console.log(error);
      }
   }
+
+  const addCreator = async (req, res, next) => {
+    const { type, name, email, password, age, contactnumber, address} = req.body;
+
+    let existingCreator;
+    try {
+      existingCreator = await User.findOne({ email: email });
+    } catch (err) {
+      return console.log(err);
+    }
+    if (existingCreator) {
+      return res
+        .status(400)
+        .json({ message: "User Already Exists! Login Instead" });
+    }
+    //const hashedPassword = await bcrypt.hash({password});
+  
+    const Users = new User({
+      type,
+      name,
+      email,
+      password,
+      age, 
+      contactnumber, 
+      address
+    });
+  
+    try {
+      await Users.save();
+    } catch (err) {
+      return console.log(err);
+    }
+    return res.status(201).json({ Users });
+  };
+  
+  /*const getCreator = async (req, res, net)=>{
+    try{
+       const getAllCreator = await User.find({});
+       return res.status(200).json(getAllCreator);
+    } catch(error){
+       console.log(error);
+    }
+ }*/
+
+
   exports.addUser = addUser
   exports.login = login
   exports.getUser = getUser
+  exports.addCreator = addCreator
+  //exports.getCreator = getCreator
 
 
 
