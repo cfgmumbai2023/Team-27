@@ -30,7 +30,7 @@ const bcrypt = require("bcrypt");
       uidse, 
       language1,
       language2,
-      isAccepted : "false",
+      isAccepted : false,
     });
   
     try {
@@ -40,6 +40,20 @@ const bcrypt = require("bcrypt");
     }
     return res.status(201).json({ Users });
   };
+
+  const updateUser =async (req, res, next)=>{
+   const user = req.params.id;
+   const {isAccepted} = req.body;
+    try{
+       const updatedUser = await User.findByIdAndUpdate(user, {
+           isAccepted
+       })
+
+       return res.status(200).json({message : "User updated"})
+    } catch (error){
+      console.log(error);
+    }
+  }
 
   const login = async (req, res, next) => {
     const { email, password } = req.body;
@@ -105,21 +119,14 @@ const bcrypt = require("bcrypt");
     return res.status(201).json({ Users });
   };
   
-  /*const getCreator = async (req, res, net)=>{
-    try{
-       const getAllCreator = await User.find({});
-       return res.status(200).json(getAllCreator);
-    } catch(error){
-       console.log(error);
-    }
- }*/
-
-
+  
   exports.addUser = addUser
   exports.login = login
   exports.getUser = getUser
   exports.addCreator = addCreator
-  //exports.getCreator = getCreator
+  exports.updateUser = updateUser
+
+ 
 
 
 
