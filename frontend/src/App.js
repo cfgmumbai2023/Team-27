@@ -4,25 +4,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminPage from './pages/AdminPage'
 import UserRegisteration from './pages/UserRegisteration';
 import CreatorRegisteration from './pages/CreatorRegisteration';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/registerStudent' element={<UserRegisteration/>}/>
+          <Route path='/registerCreator' element={<CreatorRegisteration/>}/>
+          <Route path='/admin/user' element={<AdminPage/>}/>
+          <Route path='/LoginPage' element={<LoginPage/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -12,6 +12,7 @@ const CreatorRegisteration = () => {
         name: "",
         email:"",
         password:"",
+        age:0,
         contactnumber:"",
         address:"",
         type:"Creator"
@@ -35,6 +36,7 @@ const CreatorRegisteration = () => {
               name: user.name,
               email: user.email,
               password: user.password,
+              age: user.age,
               contactnumber: user.contactnumber,
               address: user.address
             }).then( res => {
@@ -67,6 +69,10 @@ const CreatorRegisteration = () => {
 
           <div className="mb-3">
             <input type="password" name="password" id="password" className="form-control" autoComplete="off" placeholder="Password" />
+          </div>
+
+           <div className="mb-3">
+            <input type="text" name="age" id="age" className="form-control" autoComplete="off" placeholder="Age" />
           </div>
 
           <div className="mb-3">
