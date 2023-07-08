@@ -1,10 +1,13 @@
 const mongoose=require ('mongoose');
 const express=require('express');
 const bodyParser = require("body-parser");
+const userRoute = require('./routes/user-routes.js');
 require("dotenv").config();
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use("/", userRoute);
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

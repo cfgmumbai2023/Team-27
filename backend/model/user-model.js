@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     min : 6,
     max : 50
    },
-   class : {
+   classes : {
     type : Number,
    },
    age : {
@@ -48,5 +48,4 @@ const UserSchema = new mongoose.Schema({
 })
 
 /*export default mongoose.model("User", UserSchema)*/
-const users=mongoose.model("users",UserSchema);
-module.exports=users;
+module.exports=mongoose.model("User",UserSchema);
