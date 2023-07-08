@@ -22,33 +22,36 @@ const UserSchema = new mongoose.Schema({
    },
    classes : {
     type : Number,
+    
    },
    age : {
     type : Number,
-    default : true,
+    required : true,
    },
    school : {
     type : String,
    },
    contactnumber : {
     type : Number,
-    default : true,
+    required : true,
    },
    address : {
     type : String,
-    default : true,
+    required : true,
    },
    uidse :{
-    type: [Number],
+    type: Number,
    },
    language1 : {
     type: String,
-    required : true,
    },
    language2 : {
-    type: String,
-    required : true,
-   }
+      type: String,
+     },
+     isAccepted :{
+      type : Boolean,
+      default : true
+     }
 })
 
 /*export default mongoose.model("User", UserSchema)*/
