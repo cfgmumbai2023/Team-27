@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
   next();
 });
-mongoose.connect("mongodb+srv://"+process.env.MONGO_DB_USERNAME+":"+process.env.MONGO_DB_PASSWORD+"m7x74jVP8NzE4xfI@cluster0.0rwrfrq.mongodb.net/team27",{ useNewUrlParser : true}).then(() => {
+mongoose.connect("mongodb+srv://"+process.env.MONGO_DB_USERNAME+":"+process.env.MONGO_DB_PASSWORD+"@cluster0.0rwrfrq.mongodb.net/team27",{ useNewUrlParser : true}).then(() => {
     app.listen(5000, function () {
         console.log("Server Started On Port 5000");
       });
