@@ -47,6 +47,10 @@ const UserSchema = new mongoose.Schema({
    },
    language2 : {
       type: String,
+     },
+     isAccepted :{
+      type : Boolean,
+      default : true
      }
 })
 

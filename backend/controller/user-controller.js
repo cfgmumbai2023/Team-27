@@ -3,7 +3,7 @@ const User = require("../model/user-model");
 const bcrypt = require("bcrypt");
 
  const addUser = async (req, res, next) => {
-    const { type, name, email, password, classes, age, school, contactnumber, address, uidse, language1, language2} = req.body;
+    const { type, name, email, password, classes, age, school, contactnumber, address, uidse, language1, language2, isAccepted} = req.body;
     let existingUser;
     try {
       existingUser = await User.findOne({ email: email });
@@ -30,6 +30,7 @@ const bcrypt = require("bcrypt");
       uidse, 
       language1,
       language2,
+      isAccepted : "false",
     });
   
     try {
