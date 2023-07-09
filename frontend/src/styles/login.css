@@ -1,0 +1,49 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.login-form div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.login-form label {
+    margin-right: 0.5rem;
+}
+
+.login-form input {
+    padding: 0.25rem;
+}
+
+.login-form button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.register-options {
+    display: flex;
+}
+
+.register-button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
