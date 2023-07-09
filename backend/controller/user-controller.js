@@ -41,26 +41,6 @@ const bcrypt = require("bcrypt");
     return res.status(201).json({ Users });
   };
 
-  const login = async (req, res, next) => {
-    const { email, password } = req.body;
-    let existingUser;
-    try {
-      existingUser = await User.findOne({ email });
-    } catch (err) {
-      return console.log(err);
-    }
-    if (!existingUser) {
-      return res.status(404).json({ message: "Couldnt Find User By This Email" });
-    }
-  
-    //const isPasswordCorrect = Boolean.compare(password, existingUser.password);
-    if (password != existingUser.password || !existingUser.isAccepted) {
-      return res.status(400).json({ message: "Authentication Failed!" });
-    }
-    return res
-      .status(200)
-      .json({ message: "Login Successfull", user: existingUser });
-  };
   
   const addCreator = async (req, res, next) => {
     const { type, name, email, password, age, contactnumber, address} = req.body;
@@ -108,7 +88,6 @@ const bcrypt = require("bcrypt");
 };
 
 const updateUser = async (req, res) => {
-  const userId = req.params.id;
   console.log(userId);
   try {
     const user = await User.findById(userId);
@@ -142,6 +121,34 @@ const deleteUser = (req, res) => {
       res.status(500).json({ message: "Internal server error" });
     });
 };
+const login = async (req, res, next) => {
+  const { email, password } = req.body;
+  let existingUser;
+  try {
+    existingUser = await User.findOne({ email });
+  } catch (err) {
+    return console.log(err);
+  }
+  if (!existingUser) {
+    return res.status(404).json({ message: "Couldnt Find User By This Email" });
+  }
+
+  //const isPasswordCorrect = Boolean.compare(password, existingUser.password);
+  if (password != existingUser.password || !existingUser.isAccepted) {
+    return res.status(400).json({ message: "Authentication Failed!" });
+  }
+  return res
+    .status(200)
+    .json({ message: "Login Successfull", user: existingUser });
+};
+
 
 
 module.exports = { addUser, login, getUser, addCreator,updateUser, deleteUser};
+
+
+ 
+
+
+
+   

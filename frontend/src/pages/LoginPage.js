@@ -35,10 +35,10 @@ const LoginPage = () => {
         navigate('/contentpage')
       }
       else if(currentUser.type === "Admin"){
-        navigate('/admin/user')
+        localStorage.setItem("user", {...currentUser})
       }
-      else{
-        navigate('/admin')
+      if(currentUser === "Student"){
+        navigate('/student')
       }
 
     } catch(err){
@@ -52,41 +52,37 @@ const LoginPage = () => {
   const handleRegisterUser = () => {
     // Handle user registration logic here
     navigate('/registerStudent')
-    console.log('Register as User');
   };
-
-  const handleRegisterCreator = () => {
+  const handleRegisterCreator = () =>{
     // Handle creator registration logic here
     navigate('/registerCreator')
     console.log('Register as Creator');
-  };
+  }
 
-  return (
+
     
-    
-
-<div className="container">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-      <h2>Login Page</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email:</label>
-          <input type="email" className="form-control" id="email" value={email} onChange={handleEmailChange} required />
+    return(<div className="container">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+        <h2>Login Page</h2>
+        <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+            <label htmlFor="email" className="form-label">Email:</label>
+            <input type="email" className="form-control" id="email" value={email} onChange={handleEmailChange} required />
+            </div>
+            <div className="mb-3">
+            <label htmlFor="password" className="form-label">Password:</label>
+            <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} required />
+            </div>
+            <button type="submit" className="btn btn-primary">Login</button>
+        </form>
+        <div className="mt-3">
+            <button onClick={handleRegisterUser} className="btn btn-secondary me-2">Register as User</button>
+            <button onClick={handleRegisterCreator} className="btn btn-secondary">Register as Creator</button>
         </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">Password:</label>
-          <input type="password" className="form-control" id="password" value={password} onChange={handlePasswordChange} required />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
-      </form>
-      <div className="mt-3">
-        <button onClick={handleRegisterUser} className="btn btn-secondary me-2">Register as User</button>
-        <button onClick={handleRegisterCreator} className="btn btn-secondary">Register as Creator</button>
-      </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    </div>
 
-  );
+    );
 };
 
-export default LoginPage;
+export default LoginPage

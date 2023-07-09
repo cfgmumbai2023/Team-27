@@ -11,10 +11,6 @@ body,
     height: 100%;
 }
 
-#header{
-    font-size: large;
-}
-
 #sidebar_content{
     color: white;
     display: flex;
